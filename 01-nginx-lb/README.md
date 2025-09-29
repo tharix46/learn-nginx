@@ -1,12 +1,16 @@
-# Nginx - Using As a Reverse Proxy & Load Balancer on Ubuntu
+# 🚀 Nginx - Using As a Reverse Proxy & Load Balancer on Ubuntu
 
 This project demonstrates how to set up Nginx as a reverse proxy and load balancer for multiple instances of a Node.js application.
 
-The setup includes **3 replicas of the Node.js app**, each running **on Docker containers** with different ports binded on host, and **Nginx** configured to distribute incoming requests among these replicas.
+The setup includes
+
+- **3 replicas of the Node.js app**
+- Each running **on Docker containers** with different host ports
+- **Nginx** configured to distribute incoming requests among these replicas.
 
 ---
 
-### Dockerize & Run the Node.js Application
+### 🐳 Dockerize & Run the Node.js Application
 
 1. Dockerfile is provided to containerize the Node.js app.
 
@@ -24,15 +28,15 @@ docker compose ps
 
 ---
 
-### Self-sign SSL Certificate Configuration
+### 🔐 Self-sign SSL Certificate Configuration
 
-1. Create the certificate and private key:
+1. Generate certificate and private key:
 
 ```bash
 openssl req -x509 -newkey rsa:2048 -nodes -keyout self-sign.key -out self-sign.crt -days 365
 ```
 
-2. Move the generated files to the appropriate directory:
+2. Move them to the standard SSL directories:
 
 ```bash
 sudo mv self-sign.crt /etc/ssl/certs/
@@ -41,11 +45,11 @@ sudo mv self-sign.key /etc/ssl/private/
 
 ---
 
-### Nginx Configuration
+### ⚙️ Nginx Configuration
 
-1. Change the `server_name` in the `node-app.conf` file to your server's domain name or IP address.
+1. Update the `server_name` in `node-app.conf` with your server's domain name or IP.
 
-2. Use the provided `nginx-conf.sh` script to install and configure Nginx.
+2. Run the provided `nginx-conf.sh` script to install and configure Nginx.
 
 ```bash
 chmod 744 nginx-conf.sh
@@ -54,18 +58,19 @@ chmod 744 nginx-conf.sh
 
 ---
 
-### Access the Application
+### 🌐 Access the Application
 
-- Open your web browser and navigate to
-  - `http://<your-server-ip>`
-    or
-  - `https://<your-server-ip>`
+Open your web browser and navigate to
+
+- `http://<your-server-ip>`
+
+- `https://<your-server-ip>`
 
 ---
 
-### Load Balancing Verification
+### 📊 Load Balancing Verification
 
-1. Open docker compose logs:
+1. Tail docker compose logs:
 
 ```bash
 docker compose logs -f
