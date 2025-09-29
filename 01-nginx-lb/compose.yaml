@@ -1,0 +1,31 @@
+services:
+  node-app-builder:
+    build: .
+    image: node-app:V1
+
+  rep1:
+    image: node-app:V1
+    environment:
+      - APP_NAME=rep1
+    ports:
+      - "3001:3000"
+    depends_on:
+      - node-app-builder
+
+  rep2:
+    image: node-app:V1
+    environment:
+      - APP_NAME=rep2
+    ports:
+      - "3002:3000"
+    depends_on:
+      - node-app-builder
+
+  rep3:
+    image: node-app:V1
+    environment:
+      - APP_NAME=rep3
+    ports:
+      - "3003:3000"
+    depends_on:
+      - node-app-builder
