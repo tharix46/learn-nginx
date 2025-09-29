@@ -2,11 +2,11 @@
 
 This project demonstrates how to set up Nginx as a reverse proxy and load balancer for multiple instances of a Node.js application.
 
-The setup includes
+The setup includes:
 
 - **3 replicas of the Node.js app**
 - Each running **on Docker containers** with different host ports
-- **Nginx** configured to distribute incoming requests among these replicas.
+- **Nginx** configured to **distribute incoming requests** among these replicas.
 
 ---
 
