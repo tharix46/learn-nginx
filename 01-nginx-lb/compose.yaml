@@ -8,7 +8,7 @@ services:
     environment:
       - APP_NAME=rep1
     ports:
-      - "3001:3000"
+      - "127.0.0.1:3001:3000"
     depends_on:
       - node-app-builder
 
@@ -17,7 +17,7 @@ services:
     environment:
       - APP_NAME=rep2
     ports:
-      - "3002:3000"
+      - "127.0.0.1:3002:3000"
     depends_on:
       - node-app-builder
 
@@ -26,6 +26,6 @@ services:
     environment:
       - APP_NAME=rep3
     ports:
-      - "3003:3000"
+      - "127.0.0.1:3003:3000"
     depends_on:
       - node-app-builder
