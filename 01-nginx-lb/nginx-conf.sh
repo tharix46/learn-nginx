@@ -8,8 +8,9 @@ sudo apt update && sudo apt install -y nginx
 sudo systemctl start nginx
 sudo systemctl enable nginx
 
-# copy custom nginx config file
-sudo cp ./node-app.conf /etc/nginx/conf.d/
+# copy custom nginx config file & create a symlink
+sudo cp ./node-app.conf /etc/nginx/sites-available
+sudo ln -s /etc/nginx/sites-available/node-app.conf /etc/nginx/sites-enabled/
 sudo nginx -t
 
 # reload nginx
