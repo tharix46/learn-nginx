@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+echo -e "\n\n"
+
 # install nginx
 sudo apt update && sudo apt install -y nginx
 
@@ -12,8 +14,13 @@ sudo systemctl enable nginx
 sudo cp ./node-app.conf /etc/nginx/sites-available/
 sudo ln -sf /etc/nginx/sites-available/node-app.conf /etc/nginx/sites-enabled/node-app.conf
 
+# create self-signed SSL certificate
+sudo mv node-app-self-sign.crt /etc/ssl/certs/
+sudo mv node-app-self-sign.key /etc/ssl/private/
+
 # test and reload nginx
 sudo nginx -t
 sudo systemctl reload nginx
 
-echo "✅ Nginx installed and custom config applied!"
+echo -e "\n\n✅ Nginx successfully installed and running.\n"
+
