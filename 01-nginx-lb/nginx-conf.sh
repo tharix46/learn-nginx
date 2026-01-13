@@ -17,7 +17,3 @@ sudo nginx -t
 sudo nginx -s reload
 
 echo "✅ Nginx installed and custom config applied!"
-
-# update UFW rules to allow HTTP and HTTPS traffic
-sudo ufw allow 'Nginx Full'
-echo "✅ UFW rules (HTTP and HTTPS) updated for Nginx!"
