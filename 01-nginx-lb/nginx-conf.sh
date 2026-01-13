@@ -9,11 +9,11 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 
 # copy custom nginx config file & create a symlink
-sudo cp ./node-app.conf /etc/nginx/sites-available
-sudo ln -s /etc/nginx/sites-available/node-app.conf /etc/nginx/sites-enabled/
-sudo nginx -t
+sudo cp ./node-app.conf /etc/nginx/sites-available/
+sudo ln -sf /etc/nginx/sites-available/node-app.conf /etc/nginx/sites-enabled/node-app.conf
 
-# reload nginx
-sudo nginx -s reload
+# test and reload nginx
+sudo nginx -t
+sudo systemctl reload nginx
 
 echo "✅ Nginx installed and custom config applied!"
