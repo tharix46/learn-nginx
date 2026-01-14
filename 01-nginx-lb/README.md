@@ -30,30 +30,27 @@ docker compose ps
 
 ### 🔐 Self-sign SSL Certificate Configuration
 
-1. Generate certificate and private key:
+⚠️ **IMPORTANT** ⚠️
+
+1.Before running the `nginx-conf.sh` script, generate certificate and private key:
 
 ```bash
-openssl req -x509 -newkey rsa:2048 -nodes -keyout self-sign.key -out self-sign.crt -days 365
+sudo openssl req -x509 -newkey rsa:2048 -nodes -keyout node-app-self-sign.key -out node-app-self-sign.crt -days 365
 ```
 
-2. Move them to the standard SSL directories:
-
-```bash
-sudo mv self-sign.crt /etc/ssl/certs/
-sudo mv self-sign.key /etc/ssl/private/
-```
+2. Script will move them to the standard SSL directories (`/etc/ssl/certs/` and `/etc/ssl/private/`)
 
 ---
 
 ### ⚙️ Nginx Configuration
 
-1. Update the `server_name` in `node-app.conf` with your server's domain name or IP.
+1. Update the `server_name` in `node-app.conf` with your server's domain name or IP. Currently, it's set to `192.168.1.22`.
 
-2. Run the provided `nginx-conf.sh` script to install and configure Nginx.
+2. Run the provided `nginx-conf.sh` script with root privileges to install and configure Nginx.
 
 ```bash
 chmod 744 nginx-conf.sh
-./nginx-conf.sh
+sudo ./nginx-conf.sh
 ```
 
 ---
