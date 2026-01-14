@@ -1,8 +1,5 @@
 FROM node:alpine
 
-#RUN addgroup -S appuser && \
-#adduser -S -u 1000 appuser -G appuser
-
 WORKDIR /app
 
 COPY package.json .
