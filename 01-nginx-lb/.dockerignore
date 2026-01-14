@@ -1,9 +1,11 @@
 .git
 .gitignore
 .vscode
-.Ds_Store
+.DS_Store
 README.md
 node_modules
 nginx-conf.sh
 node-app.conf
 compose.yaml
+*.crt
+*.key
