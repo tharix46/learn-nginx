@@ -1,18 +1,18 @@
-# 🚀 Nginx - Using As a Reverse Proxy & Load Balancer on Ubuntu
+# 🚀 Nginx - Using as a Reverse Proxy & Load Balancer on Ubuntu
 
 This project demonstrates how to set up Nginx as a reverse proxy and load balancer for multiple instances of a Node.js application.
 
 The setup includes:
 
 - **3 replicas of the Node.js app**
-- Each running **on Docker containers** with different host ports
+- Each running **in Docker containers** with different host ports
 - **Nginx** configured to **distribute incoming requests** among these replicas.
 
 ---
 
 ### 🐳 Dockerize & Run the Node.js Application
 
-1. Dockerfile is provided to containerize the Node.js app.
+1. A Dockerfile is provided to containerize the Node.js app.
 
 2. Use the provided `compose.yaml` to build and run the application replicas.
 
@@ -32,13 +32,13 @@ docker compose ps
 
 ⚠️ **IMPORTANT** ⚠️
 
-1.Before running the `nginx-conf.sh` script, generate certificate and private key:
+1. Before running the `nginx-conf.sh` script, generate certificate and private key:
 
 ```bash
 sudo openssl req -x509 -newkey rsa:2048 -nodes -keyout node-app-self-sign.key -out node-app-self-sign.crt -days 365
 ```
 
-2. Script will move them to the standard SSL directories (`/etc/ssl/certs/` and `/etc/ssl/private/`)
+2. The `nginx-conf.sh` script will move them to the standard SSL directories (`/etc/ssl/certs/` and `/etc/ssl/private/`).
 
 ---
 
@@ -57,7 +57,7 @@ sudo ./nginx-conf.sh
 
 ### 🌐 Access the Application
 
-Open your web browser and navigate to
+Open your web browser and navigate to:
 
 - `http://<your-server-ip>`
 
@@ -73,6 +73,6 @@ Open your web browser and navigate to
 docker compose logs -f
 ```
 
-2. Refresh the browser multiple times and Check compose logs to see requests being distributed among the replicas.
+2. Refresh the browser multiple times and check compose logs to see requests being distributed among the replicas.
 
 ---
