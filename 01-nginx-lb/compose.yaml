@@ -1,16 +1,11 @@
 services:
-  node-app-builder:
-    build: .
-    image: node-app:V1
-
   rep1:
+    build: .
     image: node-app:V1
     environment:
       - APP_NAME=rep1
     ports:
       - "127.0.0.1:3001:3000"
-    depends_on:
-      - node-app-builder
 
   rep2:
     image: node-app:V1
@@ -18,8 +13,6 @@ services:
       - APP_NAME=rep2
     ports:
       - "127.0.0.1:3002:3000"
-    depends_on:
-      - node-app-builder
 
   rep3:
     image: node-app:V1
@@ -27,5 +20,3 @@ services:
       - APP_NAME=rep3
     ports:
       - "127.0.0.1:3003:3000"
-    depends_on:
-      - node-app-builder
